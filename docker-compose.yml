@@ -1,0 +1,18 @@
+version: '2'
+services:
+    postgres_sd:
+        build:
+            context: ./postgres
+            dockerfile: Dockerfile
+        image: sonesuke/postgres
+        hostname: postgres_sd
+        command: ["postgres"]
+
+    client:
+        build:
+            context: ./postgres
+            dockerfile: Dockerfile
+        image: sonesuke/postgres
+        hostname: client
+        tty: yes
+        command: ["/bin/bash"]
